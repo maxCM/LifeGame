@@ -16,14 +16,15 @@ public class StatusPanel extends JPanel implements Observer {
     private final StatusController statusController;
     private int generation;
     private int livecell;
+    private Button btn;
+    private Button btn2;
+
 
 
     @Autowired
     public StatusPanel(StatusController statusController) {
         this.statusController = statusController;
         this.statusController.addObserver(this);
-        this.generation = generation;
-        this.livecell = livecell;
 
         JFrame f = new JFrame();
         JPanel p = new JPanel();
@@ -41,11 +42,12 @@ public class StatusPanel extends JPanel implements Observer {
         p.setLayout(layout);
         p2.setLayout(layout);
 
-        Button btn = new Button(String.valueOf(this.generation));
-        Button btn2 = new Button(String.valueOf(this.livecell));
+        this.btn = new Button(String.valueOf(this.generation));
+        this.btn2 = new Button(String.valueOf(this.livecell));
 
-        btn.setBounds(50, 50, 10, 10);
-        btn2.setBounds(0, 0, 10, 10);
+        this.btn.setBounds(50, 50, 10, 10);
+        this.btn2.setBounds(0, 0, 10, 10);
+        this.btn.setFont();
 
         JLabel gen = new JLabel();
         gen.setText("generation");
@@ -55,11 +57,14 @@ public class StatusPanel extends JPanel implements Observer {
         liv.setText("live cell");
         p2.add(liv);
 
-        p.add(btn);
-        p2.add(btn2);
+        p.add(this.btn);
+        p2.add(this.btn2);
 
         f.add(p);
         f.add(p2);
+
+        System.out.println("in status panel gen"+this.generation);
+        System.out.println("in status panel liv"+this.livecell);
 
     }
 
@@ -70,6 +75,10 @@ public class StatusPanel extends JPanel implements Observer {
             this.generation = ((Model) o).getGeneration();
             this.livecell = ((Model) o).getLivecell();
         }
+
+        this.btn.setLabel(String.valueOf(this.generation));
+        this.btn2.setLabel(String.valueOf(this.livecell));
+
         this.repaint();
     }
 }
