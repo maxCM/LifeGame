@@ -37,7 +37,7 @@ public class Model extends Observable {
     }
 
     public int getLivecell() {
-        return this.livecell;
+            return this.livecell;
     }
 
     public void setMapSize(int n) {
@@ -95,7 +95,6 @@ public class Model extends Observable {
             }
         }
         // this.map = map;
-
         this.generation += 1;
         this.mapChanged();
     }

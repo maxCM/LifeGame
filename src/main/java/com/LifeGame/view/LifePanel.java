@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -43,6 +44,8 @@ public class LifePanel extends JPanel implements Observer {
          * This size is extrinsic to a Resident (It's passed into the
          * Resident's "draw yourself" method.
          */
+
+
 
         int DEFAULT_CELL_SIZE = 8;
         final Dimension PREFERRED_SIZE = new Dimension(this.outermostCell.widthInCells() * DEFAULT_CELL_SIZE, this.outermostCell.widthInCells() * DEFAULT_CELL_SIZE);
