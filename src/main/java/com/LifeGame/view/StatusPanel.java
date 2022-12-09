@@ -25,14 +25,42 @@ public class StatusPanel extends JPanel implements Observer {
         this.generation = generation;
         this.livecell = livecell;
 
-        JFrame frame = new JFrame("Cell Information");
-        frame.setLayout(new BorderLayout());
-        frame.setSize(200, 200);
+        JFrame f = new JFrame();
+        JPanel p = new JPanel();
+        JPanel p2 = new JPanel();
+
+        f.setTitle("Cell Information");
+        f.setSize(250, 250);
+        f.setVisible(true);
+        f.setLayout(null);
+
+        p.setBounds(0, 0, 200, 100);
+        p2.setBounds(0, 100, 200, 100);
+
+        GridLayout layout = new GridLayout(1,2);
+        p.setLayout(layout);
+        p2.setLayout(layout);
+
+        Button btn = new Button(String.valueOf(this.generation));
+        Button btn2 = new Button(String.valueOf(this.livecell));
+
+        btn.setBounds(50, 50, 10, 10);
+        btn2.setBounds(0, 0, 10, 10);
 
         JLabel gen = new JLabel();
-        gen.setText(String.valueOf(this.generation));
-        frame.add(gen);
-        frame.setVisible(true);
+        gen.setText("generation");
+        p.add(gen);
+
+        JLabel liv = new JLabel();
+        liv.setText("live cell");
+        p2.add(liv);
+
+        p.add(btn);
+        p2.add(btn2);
+
+        f.add(p);
+        f.add(p2);
+
     }
 
     @Override
