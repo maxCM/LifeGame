@@ -20,7 +20,6 @@ public class StatusPanel extends JPanel implements Observer {
     private Button btn2;
 
 
-
     @Autowired
     public StatusPanel(StatusController statusController) {
         this.statusController = statusController;
@@ -38,7 +37,7 @@ public class StatusPanel extends JPanel implements Observer {
         p.setBounds(0, 0, 200, 100);
         p2.setBounds(0, 100, 200, 100);
 
-        GridLayout layout = new GridLayout(1,2);
+        GridLayout layout = new GridLayout(1, 2);
         p.setLayout(layout);
         p2.setLayout(layout);
 
@@ -47,7 +46,6 @@ public class StatusPanel extends JPanel implements Observer {
 
         this.btn.setBounds(50, 50, 10, 10);
         this.btn2.setBounds(0, 0, 10, 10);
-        this.btn.setFont();
 
         JLabel gen = new JLabel();
         gen.setText("generation");
@@ -62,10 +60,6 @@ public class StatusPanel extends JPanel implements Observer {
 
         f.add(p);
         f.add(p2);
-
-        System.out.println("in status panel gen"+this.generation);
-        System.out.println("in status panel liv"+this.livecell);
-
     }
 
     @Override
